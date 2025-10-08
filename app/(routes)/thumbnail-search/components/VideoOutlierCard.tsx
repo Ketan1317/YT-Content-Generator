@@ -2,13 +2,29 @@
 import React from "react";
 import Image from "next/image";
 import { Eye, MessageCircle, ThumbsUp } from "lucide-react";
-import { VideoOutlierInfo } from "../../Outlier/page";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+type VideoOutlierInfo = {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  publishedAt: string;
+  viewCount: number;
+  likeCount: number;
+  commentCount: number;
+  channelTitle: string;
+  outlierScore: number;
+  smartScore: number;
+  isOutlier: boolean;
+  viewsPerDay: number;
+  engagementRate: number;
+};
 
 type Props = {
   videoInfo: VideoOutlierInfo;
