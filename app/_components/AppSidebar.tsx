@@ -11,33 +11,43 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Calendar, ChartNoAxesColumn, GalleryThumbnails, Gauge, Home, ImageIcon, Inbox, Lightbulb, Search, Settings } from "lucide-react"
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const items = [
     {
         title: "Home",
-        url: "#",
+        url: "/dashboard",
         icon: Home,
     },
     {
-        title: "Inbox",
-        url: "#",
-        icon: Inbox,
+        title: "Thumbnail Generator",
+        url: "/ai-thumbnail-generator",
+        icon: ImageIcon,
     },
     {
-        title: "Calendar",
-        url: "#",
-        icon: Calendar,
+        title: "Thumbnail Search",
+        url: "/thumbnail-search",
+        icon: GalleryThumbnails,
     },
     {
-        title: "Search",
-        url: "#",
-        icon: Search,
+        title: "Trending Keywords",
+        url: "/trending-keywords",
+        icon: ChartNoAxesColumn,
     },
     {
-        title: "Settings",
+        title: "Outlier",
+        url: "/outlier",
+        icon: Gauge,
+    },
+    {
+        title: "AI Content Generator",
+        url: "/ai-content-generator",
+        icon: Lightbulb,
+    },
+    {
+        title: "Billing",
         url: "#",
         icon: Settings,
     },
@@ -49,7 +59,7 @@ export function AppSidebar() {
         <Sidebar>
             <SidebarHeader>
                 <div className='p-4'>
-                    <Image src={'./logo.svg'} alt='logo' width={100} height={100}
+                    <Image src={'/logo.png'} alt='logo' width={100} height={100}
                         className='w-full h-full' />
                     <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
                 </div>
@@ -58,10 +68,8 @@ export function AppSidebar() {
                 <SidebarGroup>
 
                     <SidebarGroupContent>
-                        <SidebarMenu className='mt-5'>
+                        <SidebarMenu className=''>
                             {items.map((item, index) => (
-                                // <SidebarMenuItem key={item.title} className='p-2'>
-                                //     <SidebarMenuButton asChild className=''>
                                 <a href={item.url} key={index} className={`p-2 text-lg flex gap-2 items-center
                                  hover:bg-gray-100 rounded-lg ${path.includes(item.url) && 'bg-gray-200ß'}`}>
                                     <item.icon className='h-5 w-5' />
@@ -74,9 +82,7 @@ export function AppSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-            <SidebarFooter>
-                <h2 className='p-2 text-gray-400 text-sm'>Copyright @Tubeguruji</h2>
-            </SidebarFooter>
+           
         </Sidebar>
     )
 }
